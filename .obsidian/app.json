@@ -1,0 +1,9 @@
+{
+  "userIgnoreFilters": [
+    "node_modules/"
+  ],
+  "showInlineTitle": true,
+  "showLineNumber": true,
+  "alwaysUpdateLinks": true,
+  "defaultViewMode": "preview"
+}

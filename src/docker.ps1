@@ -25,5 +25,3 @@ docker container run --name nodeENV -it node:current-alpine3.22 ash
 docker run --rm --name test -v .\:/app -w /app node:current-alpine3.22 nodetest.js
 
 docker run --name prj1 -it -v .\:/app -w /app -p 8001:3000 node:current-alpine3.22 ash
-
-

@@ -1,10 +1,14 @@
+# Obsidian vault config
+.obsidian/workspace*.json
+
 # Node.js
 node_modules/
+
 # pnpm-lock.yaml
 
 # Supabase CLI
-# supabase/.temp/
-# supabase/.branches/
+supabase/.temp/
+supabase/.branches/
 # supabase/*.log
 
 # OS/Editor
