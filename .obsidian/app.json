@@ -1,8 +1,9 @@
 {
   "userIgnoreFilters": [
-    "node_modules/"
+    "node_modules/",
+    "supabase/"
   ],
-  "showInlineTitle": true,
+  "showInlineTitle": false,
   "showLineNumber": true,
   "alwaysUpdateLinks": true,
   "defaultViewMode": "preview"
