@@ -20,5 +20,12 @@
     "fs",
     "http",
     "net"
-  ]
+  ],
+  "window.title": "${rootName}→${activeEditorShort}",
+  "files.exclude": {
+    // ".obsidian": true,
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  // "explorer.excludeGitIgnore": true
 }
