@@ -23,7 +23,7 @@
   ],
   "window.title": "${rootName}→${activeEditorShort}",
   "files.exclude": {
-    // ".obsidian": true,
+    ".obsidian": true,
   },
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,

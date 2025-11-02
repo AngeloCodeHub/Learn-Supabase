@@ -4,6 +4,9 @@
 # Node.js
 node_modules/
 
+# build
+build
+
 # pnpm-lock.yaml
 
 # Supabase CLI

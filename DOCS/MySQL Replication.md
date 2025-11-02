@@ -1,6 +1,15 @@
 # Replication
+# MySQL 複寫筆記
 
-- 要確保master、slave資料一致
+- [複寫（replica）敘述（statement）官方文件](https://dev.mysql.com/doc/refman/8.0/en/sql-replication-statements.html)
+- [Chapter 19 Replication官方文件](https://dev.mysql.com/doc/refman/8.0/en/replication.html)
+- [The Binary Log 官方文件](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html)
+- [MySQL :: MySQL 8.4 Reference Manual :: 19.1.6.4 Binary Logging Options and Variables](https://dev.mysql.com/doc/refman/8.4/en/replication-options-binary-log.html)
+
+## 原理與相關指令
+
+- 原理：由 slave 發起向 master 讀取 binlog
+- binary log 是位在 master
 - 設定主從式replica應以master-slave單向思考比較簡單，否則在設定雙向時常常會搞不清流程
 - 有些指令只能在mysql.exe使用，無法在phpMyadmin用
 
@@ -9,10 +18,11 @@
 SELECT @@server_id;
 -- master指令
 SHOW MASTER STATUS;
+SHOW MASTER STATUS\G
 SHOW variables like '%log_bin%';
 SHOW variables like 'max_binlog_size';
 SHOW binary logs;
--- 清掉與重設binlog為初始狀態
+-- 清掉與重設binlog為初始狀態（謹慎使用）
 RESET MASTER
 
 -- slave指令
@@ -33,12 +43,6 @@ ALTER TABLE `member` CHANGE `Mem_LastLogin` `Mem_LastLogin` DATETIME on update C
 
 ---
 
-- [複寫（replica）敘述（statement）官方文件](https://dev.mysql.com/doc/refman/8.0/en/sql-replication-statements.html)
-- [Chapter 19 Replication官方文件](https://dev.mysql.com/doc/refman/8.0/en/replication.html)
-- [The Binary Log 官方文件](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html)
-
----
-
 ### replication流程
 
 ![展示圖](https://www.xn--djroe106hl2fyz1bszc.online/wp-content/uploads/2025/10/MySQL-Replication.webp)
@@ -51,7 +55,8 @@ ALTER TABLE `member` CHANGE `Mem_LastLogin` `Mem_LastLogin` DATETIME on update C
 
 ### replication設定
 
-1. master端my.ini
+1. 確保master、slave資料一致
+2. master端my.ini
     
     ```powershell
     # 設定此台id，id在主從式是唯一
@@ -71,20 +76,20 @@ ALTER TABLE `member` CHANGE `Mem_LastLogin` `Mem_LastLogin` DATETIME on update C
     # master重啟binlog都會多一個序列，slave會自動判斷
     ```
     
-2. slave端指定要複寫資料表，my.ini
+3. slave端指定要複寫資料表，my.ini
     
     ```powershell
     replicate-do-table=DB.Table
     ```
     
-3. master端新增一組replica帳號（slave主機的帳號密碼與host）給slave使用
+4. master端新增一組replica帳號（slave主機的帳號密碼與host）給slave使用
     
     ```sql
     # 北半球repl密碼：Egbf7983
     GRANT REPLICATION SLAVE ON *.* TO 帳號@host IDENTIFIED BY '密碼文字';
     ```
     
-4. slave端設定master的資訊
+5. slave端設定master的資訊
     
     ```sql
     stop slave;
