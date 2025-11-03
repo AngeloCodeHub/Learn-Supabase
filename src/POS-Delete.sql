@@ -3,16 +3,16 @@ SET @date_before = '2024-10-15 00:00:00';
 DELETE FROM salemer
 WHERE SL_Time < @date_before;
 DELETE FROM waste
-WHERE PayTime < '2024-10-15 00:00:00';
+WHERE PayTime < @date_before;
 DELETE FROM buycardhis
-WHERE CardTime < '2024-10-15 00:00:00';
+WHERE CardTime < @date_before;
 DELETE FROM cuspaper
-WHERE wcDate < '2024-10-15 00:00:00';
+WHERE wcDate < @date_before;
 DELETE FROM killpayrecord
-WHERE KL_TIME < '2024-10-15 00:00:00';
+WHERE KL_TIME < @date_before;
 DELETE FROM doend
-WHERE idtime < '2024-10-15 00:00:00';
+WHERE idtime < @date_before;
 DELETE FROM propose
-WHERE PR_TIME < '2024-10-15 00:00:00';
+WHERE PR_TIME < @date_before;
 DELETE FROM refund
-WHERE rTime < '2024-10-15 00:00:00';
+WHERE rTime < @date_before;

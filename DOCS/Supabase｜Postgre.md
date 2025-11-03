@@ -5,6 +5,7 @@
 - [postgres Node.JS套件](https://github.com/porsager/postgres)
 - [bcrypt.js](https://github.com/dcodeIO/bcrypt.js)
 - [pgAdmin - PostgreSQL Tools](https://www.pgadmin.org/)
+- [Prisma | Instant Postgres plus an ORM for simpler db workflows](https://www.prisma.io/)
 
 取得認證才能query api（RLS）
 
