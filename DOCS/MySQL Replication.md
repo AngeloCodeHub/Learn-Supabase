@@ -5,6 +5,8 @@
 - [Chapter 19 Replication官方文件](https://dev.mysql.com/doc/refman/8.0/en/replication.html)
 - [The Binary Log 官方文件](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html)
 - [MySQL :: MySQL 8.4 Reference Manual :: 19.1.6.4 Binary Logging Options and Variables](https://dev.mysql.com/doc/refman/8.4/en/replication-options-binary-log.html)
+- [MySQL :: MySQL 5.7 Reference Manual :: 13.4.2.1 CHANGE MASTER TO Statement](https://dev.mysql.com/doc/refman/5.7/en/change-master-to.html)
+- [MySQL :: MySQL 8.4 Reference Manual :: 6.5.4 mysqldump — A Database Backup Program](https://dev.mysql.com/doc/refman/8.4/en/mysqldump.html#option_mysqldump_no-create-info)
 
 ## 原理與相關指令
 
