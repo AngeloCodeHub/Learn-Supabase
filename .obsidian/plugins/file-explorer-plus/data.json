@@ -67,6 +67,13 @@
         "type": "DIRECTORIES",
         "pattern": "supabase",
         "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "DIRECTORIES",
+        "pattern": "build",
+        "patternType": "STRICT"
       }
     ],
     "frontMatter": [

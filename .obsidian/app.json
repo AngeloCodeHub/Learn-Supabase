@@ -1,7 +1,8 @@
 {
   "userIgnoreFilters": [
     "node_modules/",
-    "supabase/"
+    "supabase/",
+    "build/"
   ],
   "showInlineTitle": false,
   "showLineNumber": true,
