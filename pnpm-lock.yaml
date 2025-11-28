@@ -31,8 +31,8 @@ importers:
         specifier: ^6.19.0
         version: 6.19.0(typescript@5.9.3)
       supabase:
-        specifier: ^2.58.5
-        version: 2.58.5
+        specifier: ^2.64.2
+        version: 2.64.2
 
 packages:
 
@@ -372,8 +372,8 @@ packages:
     resolution: {integrity: sha512-qC9iz2FlN7DQl3+wjwn3802RTyjCx7sDvfQEXchwa6CWOx07/WVfh91gBmQ9fahw8snwGEWU3xGzOt4tFyHLxg==}
     engines: {node: '>= 0.6'}
 
-  supabase@2.58.5:
-    resolution: {integrity: sha512-mYZSkUIePTdmwlHd26Pff8wpmjfre8gcuWzrc5QqhZgZvCXugVzAQQhcjaQisw5kusbPQWNIjUwcHYEKmejhPw==}
+  supabase@2.64.2:
+    resolution: {integrity: sha512-EugYwwNGIcJSuyPPvUR02KYn5YqM9M/ZdgEbWZli1J4HQZafazVYsCGCpApRozzUG314tZBsMylNCZzc9nfvRw==}
     engines: {npm: '>=8'}
     hasBin: true
 
@@ -717,7 +717,7 @@ snapshots:
 
   sqlstring@2.3.3: {}
 
-  supabase@2.58.5:
+  supabase@2.64.2:
     dependencies:
       bin-links: 6.0.0
       https-proxy-agent: 7.0.6
