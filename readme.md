@@ -3,7 +3,8 @@
 ## Scope
 
 - Linux OS 管理（不包含 WSL 架設與使用）
-- 資料庫技術（不包含伺服器架設，伺服器架設歸類在Wamp64）：PostgreSQL、MySQL
+- NginX Web Server
+- 資料庫技術（不包含伺服器架設，MySQL伺服器架設歸類在Wamp64）：PostgreSQL、MySQL
 - Docker、Kubernetes 技術
 - Supabase BaaS 全攻略
 - CI/CD、DevOps
