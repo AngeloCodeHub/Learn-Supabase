@@ -21,18 +21,3 @@
 1. 安裝WSL
 2. 安裝 Docker Desktop
 3. 安裝 Supabase
-
-## Docker 使用指南
-
-* `docker --version`：檢查 Docker 版本。
-* `docker pull <image>`：從 Docker Hub 下載映像檔。
-* `docker images`：列出本地所有 Docker 映像檔。
-* `docker rmi <image>`：刪除指定的 Docker 映像檔。
-* `docker run <image>`：運行指定的 Docker 映像檔。
-* `docker ps`：列出正在運行的容器。
-* `docker stop <container>`：停止指定的容器。
-* `docker exec -it <container> /bin/bash`：進入正在運行的容器。
-* `docker container start 3d499f659935`：
-  啟動指定的容器。
-* `docker commit ap1 myimage:latest`：
-  將容器 ap1 的變更提交為新的映像檔 myimage:latest。

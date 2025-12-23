@@ -1,3 +1,7 @@
+
+## FAQ
+- [ ] studio是不是只能使用單一資料庫
+
 - [PostgreSQL: The world's most advanced open source database](https://www.postgresql.org/)
 - [簡介 | PostgreSQL 正體中文使用手冊](https://docs.postgresql.tw/)
 - [PostgREST Documentation — PostgREST 14 documentation](https://docs.postgrest.org/)
@@ -9,7 +13,6 @@
 - [\[PSQL\] PostgreSQL 角色權限 Roles and Privileges | PJCHENder I/O](https://pjchender.dev/database/psql-roles-privilege/)
 - [三十天，PG與我 :: 2022 iThome 鐵人賽](https://ithelp.ithome.com.tw/users/20114934/ironman/4984)
 - [pgcli](https://www.pgcli.com/)
-- [dimitri/pgloader: Migrate to PostgreSQL in a single command!](https://github.com/dimitri/pgloader?tab=readme-ov-file)
 
 取得認證才能query api（RLS）
 
