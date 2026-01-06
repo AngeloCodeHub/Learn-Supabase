@@ -1,0 +1,32 @@
+# Node.js
+node_modules/
+
+# build
+build
+dist
+_example
+
+# pnpm-lock.yaml
+
+# Supabase CLI
+supabase/.temp/
+supabase/.branches/
+# supabase/*.log
+
+# OS/Editor
+.DS_Store
+Thumbs.db
+
+# Env files
+_env
+.env
+.env.local
+
+# Others
+*.log
+
+# Supabase產生物件
+volumes/db/data
+volumes/storage
+
+docker-compose.override.yml
