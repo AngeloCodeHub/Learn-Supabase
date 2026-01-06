@@ -1,0 +1,24 @@
+# Node.js
+node_modules/
+
+# build
+build
+
+# pnpm-lock.yaml
+
+# Supabase CLI
+supabase/.temp/
+supabase/.branches/
+# supabase/*.log
+
+# OS/Editor
+.DS_Store
+Thumbs.db
+
+# Env files
+_env
+.env
+.env.local
+
+# Others
+*.log
