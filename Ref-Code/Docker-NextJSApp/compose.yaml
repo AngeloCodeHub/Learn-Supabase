@@ -1,0 +1,42 @@
+# version: '3.8'
+
+services:
+  nextjs-app:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile.dockerfile
+      target: runner
+      # 在建置時傳遞 NEXT_PUBLIC_* 變數（使用 localhost，給瀏覽器客戶端用）
+      args:
+        NEXT_PUBLIC_SUPABASE_URL: http://localhost:54321
+        NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY}
+    container_name: learn-nextjs-app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      # 注意：NEXT_PUBLIC_* 在建置時已內嵌，這裡的設定主要給伺服器端參考
+      - SUPABASE_URL=http://supabase_kong_Learn-Supabase:8000
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY:-}
+      - POSTGRES_URL=postgresql://postgres:postgres@supabase_db_Learn-Supabase:5432/postgres
+    networks:
+      - supabase_network_Learn-Supabase
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://localhost:3000', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})",
+        ]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 40s
+networks:
+  supabase_network_Learn-Supabase:
+    external: true # 表示這個網路由 Supabase 建立，我們只是連接到它
