@@ -1,0 +1,1 @@
+D:/WorkSpace/Learn-WinAdmin/Src/psql-shell.ps1
