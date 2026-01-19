@@ -1,7 +1,7 @@
 # Remove all Docker containers
 docker container rm -f $(docker container ls -aq)
 
-# 
+#
 docker container run -it --name ch03lab diamol/ch03-lab:2e
 docker container run -it -e TARGET="google.com" -e INTERVAL=5000 ping-test
 docker container run --name iotd -d -p 800:80 --network nat javaimage
@@ -43,11 +43,13 @@ docker run --name LearnNextJS -p 3000:3000 learn-nextjs:latest
 
 docker compose --env-file .env up -d
 
-docker run -d `
-  --name learn-nextjs `
-  -p 3000:3000 `
-  --env-file .env `
-  learn-nextjs-nextjs-app:latest
+docker run -d $(
+	--name learn-nextjs
+)
+-p 3000:3000 $(
+	--env-file .env
+)
+learn-nextjs-nextjs-app:latest
 
 docker compose exec nextjs-app sh -lc "printenv | grep -E 'AUTH_SECRET|POSTGRES_URL|NEXT_PUBLIC_SUPABASE_URL'"
 docker compose exec nextjs-app wget -q -O- http://supabase_kong_Learn-Supabase:8000/rest/v1/ | head -20
@@ -55,3 +57,30 @@ docker compose logs -f nextjs-app
 
 # 進入容器Linux內部
 docker exec -it a4e27a271164 /bin/bash
+
+# 指定宿主與container資料映射
+docker run --name vol1 -it -v D:\WorkSpace\supabase\voldata:/data alpine ash
+
+# 指定container與container資料映射
+docker run --name vol2 -it -v /data alpine ash
+docker run --name vol3 -it --volumes-from vol2 alpine ash
+
+docker volume create myvol
+docker run --name vol4 -it -v myvol:/data alpine ash
+
+docker rm vol4
+docker volume rm myvol
+
+docker cp .\DOC-docker.txt vol2:/data
+
+docker run --name websrv -d -p 9090:80 nginx
+
+docker exec -it websrv bash
+
+docker cp .\html.html websrv:/usr/share/nginx/html
+
+docker container run --name nodeENV -it node:current-alpine3.22 ash
+
+docker run --rm --name test -v .\:/app -w /app node:current-alpine3.22 nodetest.js
+
+docker run --name prj1 -it -v .\:/app -w /app -p 8001:3000 node:current-alpine3.22 ash
