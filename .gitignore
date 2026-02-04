@@ -24,3 +24,6 @@ _env
 
 # Others
 *.log
+
+# Supabase產生物件
+volumes
