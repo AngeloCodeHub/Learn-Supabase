@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "rclone": {
+      "source": "everyinc/compound-engineering-plugin",
+      "sourceType": "github",
+      "computedHash": "1f7eac660f50a0e3d52898b0d9327cd5f3e672fe30f3ca0c1a35de6c0c4d152e"
+    }
+  }
+}
