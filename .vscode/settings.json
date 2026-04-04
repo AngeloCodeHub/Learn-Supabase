@@ -23,7 +23,7 @@
   ],
   "window.title": "${rootName}→${activeEditorShort}",
   "files.exclude": {},
-  "explorer.excludeGitIgnore": true,
+  // "explorer.excludeGitIgnore": true,
   "js/ts.tsdk.path": "node_modules/typescript/lib",
   "[sql]": {
     "editor.defaultFormatter": "Supabase.postgrestools"
