@@ -1,30 +1,77 @@
-# !/bin/bash
+#!/usr/bin/env bash
 # Update all agents and tools
 
-# GitHub Copilot
-copilot -v
-copilot update
+set -euo pipefail
 
-# claude update
-claude -v
-claude upgrade
+log() {
+	echo "[INFO] $*"
+}
 
-# OpenAI Codex
-npm outdated @openai/codex -g
-npm update @openai/codex -g
+done_msg() {
+	echo "[DONE] $* update completed."
+}
 
-# Gemini CLI
-npm outdated @google/gemini-cli -g
-npm update @google/gemini-cli -g
+require_cmd() {
+	local cmd="$1"
+	if ! command -v "$cmd" >/dev/null 2>&1; then
+		echo "[WARN] '$cmd' not found, skip this step."
+		return 1
+	fi
+	return 0
+}
 
-# Qwen Code
-npm outdated @qwen-code/qwen-code -g
-npm update @qwen-code/qwen-code -g
+update_copilot() {
+	require_cmd copilot || return 0
+	log "Updating GitHub Copilot..."
+	copilot -v
+	copilot update
+	done_msg "GitHub Copilot"
+}
 
-# skills
-pnpm outdated skills -g
-pnpm update skills -g
+update_claude() {
+	require_cmd claude || return 0
+	log "Updating Claude..."
+	claude -v
+	claude upgrade
+	done_msg "Claude"
+}
 
-# openspec
-bun outdated @fission-ai/openspec -g
-bun i @fission-ai/openspec -g
+update_npm_pkg() {
+	local label="$1"
+	local pkg="$2"
+	require_cmd npm || return 0
+	log "Updating ${label} (${pkg})..."
+	npm outdated "$pkg" -g || true
+	npm update "$pkg" -g
+	done_msg "$label"
+}
+
+update_pnpm_pkg() {
+	local label="$1"
+	local pkg="$2"
+	require_cmd pnpm || return 0
+	log "Updating ${label} (${pkg})..."
+	pnpm outdated "$pkg" -g || true
+	pnpm update "$pkg" -g
+	done_msg "$label"
+}
+
+update_bun_pkg() {
+	local label="$1"
+	local pkg="$2"
+	require_cmd bun || return 0
+	log "Updating ${label} (${pkg})..."
+	bun outdated "$pkg" -g || true
+	bun add "$pkg" -g
+	done_msg "$label"
+}
+
+log "Start updating all agents/tools..."
+update_copilot
+update_claude
+update_npm_pkg "OpenAI Codex" "@openai/codex"
+update_npm_pkg "Gemini CLI" "@google/gemini-cli"
+update_npm_pkg "Qwen Code" "@qwen-code/qwen-code"
+update_pnpm_pkg "Skills" "skills"
+update_bun_pkg "OpenSpec" "@fission-ai/openspec"
+log "All update tasks finished."
