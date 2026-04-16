@@ -72,6 +72,6 @@ update_claude
 update_npm_pkg "OpenAI Codex" "@openai/codex"
 update_npm_pkg "Gemini CLI" "@google/gemini-cli"
 update_npm_pkg "Qwen Code" "@qwen-code/qwen-code"
-# update_pnpm_pkg "Skills" "skills"
+update_pnpm_pkg "Skills" "skills"
 # update_bun_pkg "OpenSpec" "@fission-ai/openspec"
 log "All update tasks finished."
