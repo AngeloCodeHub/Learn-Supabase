@@ -37,8 +37,10 @@ fi
 require_command tar
 
 mapfile -t ENV_FILES < <(find "$PROJECT_ROOT" -maxdepth 1 -type f -name '.env*' | sort)
-if [[ ${#ENV_FILES[@]} -eq 0 ]]; then
-	echo "No .env* files found in project root: $PROJECT_ROOT"
+ENV_DIR="$PROJECT_ROOT/_env"
+
+if [[ ${#ENV_FILES[@]} -eq 0 && ! -d "$ENV_DIR" ]]; then
+	echo "No .env* files or _env directory found in project root: $PROJECT_ROOT"
 	exit 0
 fi
 
@@ -63,6 +65,11 @@ for src in "${ENV_FILES[@]}"; do
 	cp "$src" "$STAGE_DIR/$target_name"
 	echo "  $base -> $target_name"
 done
+
+if [[ -d "$ENV_DIR" ]]; then
+	cp -r "$ENV_DIR" "$STAGE_DIR/_env"
+	echo "  _env/ -> _env/"
+fi
 
 echo "Creating archive: $ARCHIVE_NAME"
 tar -czf "$TMP_DIR/$ARCHIVE_NAME" -C "$STAGE_DIR" .

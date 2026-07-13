@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@prisma/client": "^7.5.0",
-    "@supabase/supabase-js": "^2.99.2",
+    "@supabase/supabase-js": "^2.110.2",
     "bcrypt": "^6.0.0",
     "mysql2": "^3.20.0",
     "pg": "^8.20.0",
@@ -18,10 +18,10 @@
   },
   "devDependencies": {
     "@postgres-language-server/cli": "^0.22.1",
-    "@types/bun": "^1.3.11",
-    "@types/node": "^25.5.0",
+    "@types/bun": "^1.3.14",
+    "@types/node": "^26.1.1",
     "prisma": "^7.5.0",
     "typescript": "^5.9.3"
   },
-  "packageManager": "pnpm@10.32.1+sha512.a706938f0e89ac1456b6563eab4edf1d1faf3368d1191fc5c59790e96dc918e4456ab2e67d613de1043d2e8c81f87303e6b40d4ffeca9df15ef1ad567348f2be"
+  "packageManager": "pnpm@11.12.0+sha512.820a6fbd0d9f04c226638002aead1e45340a9139dd5dc077c1d83ef44aa2481c8eb6637b4c9aa696a3c7e35ba818e49cf27213e5f2b91138d09b7a3e26e898ba"
 }
