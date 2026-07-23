@@ -2,6 +2,9 @@
   "[typescript]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
   },
+  "[sql]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
   "deno.enablePaths": [
     "supabase/functions"
   ],
@@ -23,9 +26,6 @@
   ],
   "window.title": "${rootName}→${activeEditorShort}",
   "files.exclude": {},
-  // "explorer.excludeGitIgnore": true,
-  "js/ts.tsdk.path": "node_modules/typescript/lib",
-  "[sql]": {
-    "editor.defaultFormatter": "Supabase.postgrestools"
-  }
+  "explorer.excludeGitIgnore": true,
+  "js/ts.tsdk.path": "node_modules/typescript/lib"
 }
